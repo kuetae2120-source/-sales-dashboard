@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0064)file:///C:/Users/IVG/Downloads/sales_competitor_dashboard_7.html -->
+<!-- saved from url=(0064)file:///C:/Users/IVG/Downloads/sales_competitor_dashboard_1.html -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>경쟁 업체 판매량 대시보드</title>
-<link rel="stylesheet" href="./sales_competitor_dashboard.html_files/tabler-icons.min.css">
+<link rel="stylesheet" href="file:///C:/Users/IVG/Downloads/sales_competitor_dashboard.html_files/tabler-icons.min.css">
 <style>
   :root {
     --blue:#2563EB; --blue-light:#EFF6FF; --blue-dark:#1D4ED8;
@@ -122,12 +122,12 @@
   <div>
     <div class="topbar-title">네이버 스마트스토어 / 셀하 7일 기준 판매 데이터</div>
   </div>
-  <div style="font-size:11px;color:var(--text-tertiary)" id="latestBadge">최신: 2026-06-16</div>
+  <div style="font-size:11px;color:var(--text-tertiary)" id="latestBadge">최신: 2026-07-07</div>
   <button class="refresh-btn" onclick="loadData()"><i class="ti ti-refresh"></i> 새로고침</button>
 </div>
 
 <!-- STATUS -->
-<div class="statusbar" id="statusRow"><span class="chip chip-ok">✅ 42건 로드</span><span class="chip chip-info">📅 최신: 2026-06-16</span></div>
+<div class="statusbar" id="statusRow"><span class="chip chip-ok">✅ 168건 로드</span><span class="chip chip-info">📅 최신: 2026-07-07</span></div>
 
 <!-- FILTERBAR -->
 <div class="filterbar">
@@ -136,9 +136,9 @@
   <span class="fl">브랜드</span>
   <select class="fsel" id="filterBrand" onchange="applyFilters()"><option value="">전체 브랜드</option><option value="누비타보">누비타보</option><option value="뉴이">뉴이</option><option value="리안">리안</option><option value="미마">미마</option><option value="베이블퓨어리">베이블퓨어리</option><option value="부가부">부가부</option><option value="스토케">스토케</option><option value="실버크로스">실버크로스</option><option value="싸이벡스">싸이벡스</option><option value="씨투엠뉴">씨투엠뉴</option><option value="오이스터">오이스터</option><option value="올보르">올보르</option><option value="와이업">와이업</option><option value="잉글레시나">잉글레시나</option><option value="조이로">조이로</option><option value="줄즈">줄즈</option><option value="킨즈">킨즈</option><option value="파파야나인">파파야나인</option></select>
   <span class="fl">월</span>
-  <select class="fsel" id="filterMonth" onchange="buildWeekButtons()"><option value="">전체</option><option value="2026-06">2026-06</option></select>
+  <div class="week-btns" id="monthBtns"><button class="wbtn" data-month="2026-06">6월</button><button class="wbtn" data-month="2026-07">7월</button></div>
   <span class="fl">주차</span>
-  <div class="week-btns" id="weekBtns"><button class="wbtn active" data-date="2026-06-16">06/16</button></div>
+  <div class="week-btns" id="weekBtns"><button class="wbtn" data-date="2026-06-16">06/16</button><button class="wbtn" data-date="2026-06-23">06/23</button><button class="wbtn active" data-date="2026-06-30">06/30</button></div>
   <div class="view-btns">
     <button class="vbtn active" id="vbCard" onclick="setView(&#39;card&#39;)"><i class="ti ti-layout-grid" style="font-size:13px"></i> 카드</button>
     <button class="vbtn" id="vbTable" onclick="setView(&#39;table&#39;)"><i class="ti ti-table" style="font-size:13px"></i> 테이블</button>
@@ -150,8 +150,8 @@
 <input type="hidden" id="filterCat" value="">
 <div class="summary-grid" id="summaryGrid" style="display: grid;">
   <div class="sum-card"><div class="sum-val sum-blue" id="sumBrands">18개</div><div class="sum-label">모니터링 브랜드</div></div>
-  <div class="sum-card"><div class="sum-val sum-teal" id="sumTotalQty">907개</div><div class="sum-label">총 판매수량</div></div>
-  <div class="sum-card"><div class="sum-val sum-amber" id="sumTotalSales">2.7억</div><div class="sum-label">총 예상매출</div></div>
+  <div class="sum-card"><div class="sum-val sum-teal" id="sumTotalQty">584개</div><div class="sum-label">총 판매수량</div></div>
+  <div class="sum-card"><div class="sum-val sum-amber" id="sumTotalSales">1.8억</div><div class="sum-label">총 예상매출</div></div>
   <div class="sum-card"><div class="sum-val sum-purple" id="sumIssues">2건</div><div class="sum-label">이번 기간 이슈</div></div>
 </div>
 
@@ -167,7 +167,7 @@
           <div>
             <div class="card-hd-name">씨투엠뉴</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">687개</strong> · 예상매출 <strong style="color:var(--teal)">1.9억</strong>
+              판매 <strong style="color:var(--blue)">419개</strong> · 예상매출 <strong style="color:var(--teal)">1.3억</strong>
             </div>
           </div>
           <div class="card-hd-meta">
@@ -184,38 +184,38 @@
         <div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
           <div class="br-product" title="에이블유모카플러스" style="flex:1;font-size:12px;color:var(--text-primary)">에이블유모카플러스</div>
-          <div class="br-qty"><strong>425개</strong></div>
-          <div class="br-sales" style="">1.2억</div>
+          <div class="br-qty"><strong>197개</strong></div>
+          <div class="br-sales" style="">5674만</div>
         </div><div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#9CA3AF;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">2</span>
-          <div class="br-product" title="에이블유모카에어" style="flex:1;font-size:12px;color:var(--text-primary)">에이블유모카에어</div>
-          <div class="br-qty"><strong>108개</strong></div>
-          <div class="br-sales" style="">1490만</div>
+          <div class="br-product" title="에이블코지쉘" style="flex:1;font-size:12px;color:var(--text-primary)">에이블코지쉘</div>
+          <div class="br-qty"><strong>54개</strong></div>
+          <div class="br-sales" style="">2581만</div>
         </div><div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#CD7C3A;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">3</span>
-          <div class="br-product" title="에이블코지프리미엄" style="flex:1;font-size:12px;color:var(--text-primary)">에이블코지프리미엄</div>
-          <div class="br-qty"><strong>63개</strong></div>
-          <div class="br-sales" style="">2318만</div>
+          <div class="br-product" title="에이블유모카에어" style="flex:1;font-size:12px;color:var(--text-primary)">에이블유모카에어</div>
+          <div class="br-qty"><strong>46개</strong></div>
+          <div class="br-sales" style="">635만</div>
         </div><div class="brand-row" style="">
           <span style="width:18px;flex-shrink:0;display:inline-block"></span>
-          <div class="br-product" title="에이블코지샤인" style="flex:1;font-size:12px;color:var(--text-primary)">에이블코지샤인</div>
-          <div class="br-qty"><strong>30개</strong></div>
-          <div class="br-sales" style="">1584만</div>
+          <div class="br-product" title="에이블코지프리미엄" style="flex:1;font-size:12px;color:var(--text-primary)">에이블코지프리미엄</div>
+          <div class="br-qty"><strong>46개</strong></div>
+          <div class="br-sales" style="">1693만</div>
         </div><div class="brand-row" style="">
           <span style="width:18px;flex-shrink:0;display:inline-block"></span>
           <div class="br-product" title="에이블스핀플러스" style="flex:1;font-size:12px;color:var(--text-primary)">에이블스핀플러스</div>
-          <div class="br-qty"><strong>30개</strong></div>
-          <div class="br-sales" style="">684만</div>
+          <div class="br-qty"><strong>31개</strong></div>
+          <div class="br-sales" style="">707만</div>
         </div><div class="brand-row" style="">
           <span style="width:18px;flex-shrink:0;display:inline-block"></span>
-          <div class="br-product" title="에이블코지쉘" style="flex:1;font-size:12px;color:var(--text-primary)">에이블코지쉘</div>
-          <div class="br-qty"><strong>17개</strong></div>
-          <div class="br-sales" style="">813만</div>
+          <div class="br-product" title="에이블코지샤인" style="flex:1;font-size:12px;color:var(--text-primary)">에이블코지샤인</div>
+          <div class="br-qty"><strong>26개</strong></div>
+          <div class="br-sales" style="">1373만</div>
         </div><div class="brand-row" style="">
           <span style="width:18px;flex-shrink:0;display:inline-block"></span>
           <div class="br-product" title="에이블 트래블 캠퍼" style="flex:1;font-size:12px;color:var(--text-primary)">에이블 트래블 캠퍼</div>
-          <div class="br-qty"><strong>14개</strong></div>
-          <div class="br-sales" style="">207만</div>
+          <div class="br-qty"><strong>19개</strong></div>
+          <div class="br-sales" style="">281만</div>
         </div>
         
       </div><div class="item-card">
@@ -223,41 +223,11 @@
           <div>
             <div class="card-hd-name">리안</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">16개</strong> · 예상매출 <strong style="color:var(--teal)">429만</strong>
+              판매 <strong style="color:var(--blue)">5개</strong> · 예상매출 <strong style="color:var(--teal)">124만</strong>
             </div>
           </div>
           <div class="card-hd-meta">
             <span class="card-brand-cnt">1개 상품</span>
-            <span class="card-issue-cnt">⚠ 1</span>
-          </div>
-        </div>
-        <div class="card-col-hd">
-          <span style="width:18px;flex-shrink:0"></span>
-          <span style="flex:1;font-size:10px;color:var(--text-tertiary)">상품명</span>
-          <span style="width:58px;text-align:right;font-size:10px;color:var(--text-tertiary)">판매수량</span>
-          <span style="width:68px;text-align:right;font-size:10px;color:var(--text-tertiary)">예상매출</span>
-        </div>
-        <div class="brand-row" style="">
-          <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
-          <div class="br-product" title="젠" style="flex:1;font-size:12px;color:var(--text-primary)">젠</div>
-          <div class="br-qty"><strong>16개</strong></div>
-          <div class="br-sales" style="">429만</div>
-        </div>
-        
-        <div class="card-issues">
-          <div class="card-issues-title">⚠ 이슈</div>
-          <div class="card-issue-line">슈퍼적립</div>
-        </div>
-      </div><div class="item-card">
-        <div class="card-hd">
-          <div>
-            <div class="card-hd-name">올보르</div>
-            <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">46개</strong> · 예상매출 <strong style="color:var(--teal)">1785만</strong>
-            </div>
-          </div>
-          <div class="card-hd-meta">
-            <span class="card-brand-cnt">6개 상품</span>
             
           </div>
         </div>
@@ -269,42 +239,72 @@
         </div>
         <div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
-          <div class="br-product" title="앨빈트라이크 샴페인" style="flex:1;font-size:12px;color:var(--text-primary)">앨빈트라이크 샴페인</div>
-          <div class="br-qty"><strong>15개</strong></div>
-          <div class="br-sales" style="">537만</div>
-        </div><div class="brand-row" style="">
-          <span style="width:18px;height:18px;border-radius:50%;background:#9CA3AF;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">2</span>
-          <div class="br-product" title="앨빈트라이크 디럭스 샴페인" style="flex:1;font-size:12px;color:var(--text-primary)">앨빈트라이크 디럭스 샴페인</div>
-          <div class="br-qty"><strong>11개</strong></div>
-          <div class="br-sales" style="">460만</div>
-        </div><div class="brand-row" style="">
-          <span style="width:18px;height:18px;border-radius:50%;background:#CD7C3A;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">3</span>
-          <div class="br-product" title="앨빈트라이크 그레이" style="flex:1;font-size:12px;color:var(--text-primary)">앨빈트라이크 그레이</div>
-          <div class="br-qty"><strong>8개</strong></div>
-          <div class="br-sales" style="">286만</div>
-        </div><div class="brand-row" style="">
-          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
-          <div class="br-product" title="앨빈트라이크 샴페인 디럭스 블랙" style="flex:1;font-size:12px;color:var(--text-primary)">앨빈트라이크 샴페인 디럭스 블랙</div>
-          <div class="br-qty"><strong>6개</strong></div>
-          <div class="br-sales" style="">251만</div>
-        </div><div class="brand-row" style="">
-          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
-          <div class="br-product" title="앨빈트라이크 샴페인 디럭스 그레이" style="flex:1;font-size:12px;color:var(--text-primary)">앨빈트라이크 샴페인 디럭스 그레이</div>
-          <div class="br-qty"><strong>6개</strong></div>
-          <div class="br-sales" style="">251만</div>
-        </div><div style="height:1px;background:var(--border);margin:2px 14px"></div><div class="brand-row" style="opacity:0.35;">
-          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
-          <div class="br-product" title="앨빈트라이크 블랙" style="flex:1;font-size:12px;color:var(--text-tertiary)">앨빈트라이크 블랙</div>
-          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
-          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
+          <div class="br-product" title="젠" style="flex:1;font-size:12px;color:var(--text-primary)">젠</div>
+          <div class="br-qty"><strong>5개</strong></div>
+          <div class="br-sales" style="">124만</div>
         </div>
         
       </div><div class="item-card">
         <div class="card-hd">
           <div>
+            <div class="card-hd-name">올보르</div>
+            <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
+              판매 <strong style="color:var(--blue)">24개</strong> · 예상매출 <strong style="color:var(--teal)">955만</strong>
+            </div>
+          </div>
+          <div class="card-hd-meta">
+            <span class="card-brand-cnt">6개 상품</span>
+            <span class="card-issue-cnt">⚠ 1</span>
+          </div>
+        </div>
+        <div class="card-col-hd">
+          <span style="width:18px;flex-shrink:0"></span>
+          <span style="flex:1;font-size:10px;color:var(--text-tertiary)">상품명</span>
+          <span style="width:58px;text-align:right;font-size:10px;color:var(--text-tertiary)">판매수량</span>
+          <span style="width:68px;text-align:right;font-size:10px;color:var(--text-tertiary)">예상매출</span>
+        </div>
+        <div class="brand-row" style="">
+          <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
+          <div class="br-product" title="앨빈트라이크 샴페인" style="flex:1;font-size:12px;color:var(--text-primary)">앨빈트라이크 샴페인</div>
+          <div class="br-qty"><strong>8개</strong></div>
+          <div class="br-sales" style="">286만</div>
+        </div><div class="brand-row" style="">
+          <span style="width:18px;height:18px;border-radius:50%;background:#9CA3AF;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">2</span>
+          <div class="br-product" title="앨빈트라이크 디럭스 샴페인" style="flex:1;font-size:12px;color:var(--text-primary)">앨빈트라이크 디럭스 샴페인</div>
+          <div class="br-qty"><strong>8개</strong></div>
+          <div class="br-sales" style="">334만</div>
+        </div><div class="brand-row" style="">
+          <span style="width:18px;height:18px;border-radius:50%;background:#CD7C3A;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">3</span>
+          <div class="br-product" title="앨빈트라이크 샴페인 디럭스 블랙" style="flex:1;font-size:12px;color:var(--text-primary)">앨빈트라이크 샴페인 디럭스 블랙</div>
+          <div class="br-qty"><strong>8개</strong></div>
+          <div class="br-sales" style="">334만</div>
+        </div><div style="height:1px;background:var(--border);margin:2px 14px"></div><div class="brand-row" style="opacity:0.35;">
+          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
+          <div class="br-product" title="앨빈트라이크 블랙" style="flex:1;font-size:12px;color:var(--text-tertiary)">앨빈트라이크 블랙</div>
+          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
+          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
+        </div><div class="brand-row" style="opacity:0.35;">
+          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
+          <div class="br-product" title="앨빈트라이크 그레이" style="flex:1;font-size:12px;color:var(--text-tertiary)">앨빈트라이크 그레이</div>
+          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
+          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
+        </div><div class="brand-row" style="opacity:0.35;">
+          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
+          <div class="br-product" title="앨빈트라이크 샴페인 디럭스 그레이" style="flex:1;font-size:12px;color:var(--text-tertiary)">앨빈트라이크 샴페인 디럭스 그레이</div>
+          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
+          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
+        </div>
+        
+        <div class="card-issues">
+          <div class="card-issues-title">⚠ 이슈</div>
+          <div class="card-issue-line">앨빈트라이크 그레이 품절</div>
+        </div>
+      </div><div class="item-card">
+        <div class="card-hd">
+          <div>
             <div class="card-hd-name">베이블퓨어리</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">37개</strong> · 예상매출 <strong style="color:var(--teal)">199만</strong>
+              판매 <strong style="color:var(--blue)">11개</strong> · 예상매출 <strong style="color:var(--teal)">59만</strong>
             </div>
           </div>
           <div class="card-hd-meta">
@@ -321,8 +321,8 @@
         <div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
           <div class="br-product" title="T2" style="flex:1;font-size:12px;color:var(--text-primary)">T2</div>
-          <div class="br-qty"><strong>37개</strong></div>
-          <div class="br-sales" style="">199만</div>
+          <div class="br-qty"><strong>11개</strong></div>
+          <div class="br-sales" style="">59만</div>
         </div>
         
       </div><div class="item-card">
@@ -330,7 +330,7 @@
           <div>
             <div class="card-hd-name">누비타보</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">29개</strong> · 예상매출 <strong style="color:var(--teal)">766만</strong>
+              판매 <strong style="color:var(--blue)">35개</strong> · 예상매출 <strong style="color:var(--teal)">1029만</strong>
             </div>
           </div>
           <div class="card-hd-meta">
@@ -347,19 +347,19 @@
         <div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
           <div class="br-product" title="누비 유아" style="flex:1;font-size:12px;color:var(--text-primary)">누비 유아</div>
-          <div class="br-qty"><strong>17개</strong></div>
-          <div class="br-sales" style="">337만</div>
+          <div class="br-qty"><strong>14개</strong></div>
+          <div class="br-sales" style="">277만</div>
         </div><div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#9CA3AF;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">2</span>
           <div class="br-product" title="누비 노바 베이지" style="flex:1;font-size:12px;color:var(--text-primary)">누비 노바 베이지</div>
-          <div class="br-qty"><strong>12개</strong></div>
-          <div class="br-sales" style="">430만</div>
+          <div class="br-qty"><strong>13개</strong></div>
+          <div class="br-sales" style="">465만</div>
+        </div><div class="brand-row" style="">
+          <span style="width:18px;height:18px;border-radius:50%;background:#CD7C3A;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">3</span>
+          <div class="br-product" title="누비 노바 블랙" style="flex:1;font-size:12px;color:var(--text-primary)">누비 노바 블랙</div>
+          <div class="br-qty"><strong>8개</strong></div>
+          <div class="br-sales" style="">286만</div>
         </div><div style="height:1px;background:var(--border);margin:2px 14px"></div><div class="brand-row" style="opacity:0.35;">
-          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
-          <div class="br-product" title="누비 노바 블랙" style="flex:1;font-size:12px;color:var(--text-tertiary)">누비 노바 블랙</div>
-          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
-          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
-        </div><div class="brand-row" style="opacity:0.35;">
           <span style="width:18px;flex-shrink:0;display:inline-block"></span>
           <div class="br-product" title="누비 트래블러M" style="flex:1;font-size:12px;color:var(--text-tertiary)">누비 트래블러M</div>
           <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
@@ -371,7 +371,7 @@
           <div>
             <div class="card-hd-name">킨즈</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">8개</strong> · 예상매출 <strong style="color:var(--teal)">126만</strong>
+              판매 <strong style="color:var(--blue)">5개</strong> · 예상매출 <strong style="color:var(--teal)">79만</strong>
             </div>
           </div>
           <div class="card-hd-meta">
@@ -388,8 +388,8 @@
         <div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
           <div class="br-product" title="에어트라이크" style="flex:1;font-size:12px;color:var(--text-primary)">에어트라이크</div>
-          <div class="br-qty"><strong>8개</strong></div>
-          <div class="br-sales" style="">126만</div>
+          <div class="br-qty"><strong>5개</strong></div>
+          <div class="br-sales" style="">79만</div>
         </div>
         
       </div><div class="item-card">
@@ -397,7 +397,7 @@
           <div>
             <div class="card-hd-name">뉴이</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">10개</strong> · 예상매출 <strong style="color:var(--teal)">150만</strong>
+              <span style="color:var(--text-tertiary)">판매 없음</span>
             </div>
           </div>
           <div class="card-hd-meta">
@@ -411,11 +411,11 @@
           <span style="width:58px;text-align:right;font-size:10px;color:var(--text-tertiary)">판매수량</span>
           <span style="width:68px;text-align:right;font-size:10px;color:var(--text-tertiary)">예상매출</span>
         </div>
-        <div class="brand-row" style="">
-          <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
-          <div class="br-product" title="뉴이 트라이크" style="flex:1;font-size:12px;color:var(--text-primary)">뉴이 트라이크</div>
-          <div class="br-qty"><strong>10개</strong></div>
-          <div class="br-sales" style="">150만</div>
+        <div style="height:1px;background:var(--border);margin:2px 14px"></div><div class="brand-row" style="opacity:0.35;">
+          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
+          <div class="br-product" title="뉴이 트라이크" style="flex:1;font-size:12px;color:var(--text-tertiary)">뉴이 트라이크</div>
+          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
+          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
         </div>
         
       </div><div class="item-card">
@@ -492,12 +492,12 @@
           <div>
             <div class="card-hd-name">줄즈</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">26개</strong> · 예상매출 <strong style="color:var(--teal)">2049만</strong>
+              판매 <strong style="color:var(--blue)">10개</strong> · 예상매출 <strong style="color:var(--teal)">788만</strong>
             </div>
           </div>
           <div class="card-hd-meta">
             <span class="card-brand-cnt">1개 상품</span>
-            
+            <span class="card-issue-cnt">⚠ 1</span>
           </div>
         </div>
         <div class="card-col-hd">
@@ -509,16 +509,21 @@
         <div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
           <div class="br-product" title="에어2" style="flex:1;font-size:12px;color:var(--text-primary)">에어2</div>
-          <div class="br-qty"><strong>26개</strong></div>
-          <div class="br-sales" style="">2049만</div>
+          <div class="br-qty"><strong>10개</strong></div>
+          <div class="br-sales" style="">788만</div>
         </div>
         
+        <div class="card-issues">
+          <div class="card-issues-title">⚠ 이슈</div>
+          <div class="card-issue-line">7/15(수) 오전 11시 네이버 LIVE
+휴대용 유모차 루프트 런칭</div>
+        </div>
       </div><div class="item-card">
         <div class="card-hd">
           <div>
             <div class="card-hd-name">미마</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              <span style="color:var(--text-tertiary)">판매 없음</span>
+              판매 <strong style="color:var(--blue)">45개</strong> · 예상매출 <strong style="color:var(--teal)">1474만</strong>
             </div>
           </div>
           <div class="card-hd-meta">
@@ -532,16 +537,16 @@
           <span style="width:58px;text-align:right;font-size:10px;color:var(--text-tertiary)">판매수량</span>
           <span style="width:68px;text-align:right;font-size:10px;color:var(--text-tertiary)">예상매출</span>
         </div>
-        <div style="height:1px;background:var(--border);margin:2px 14px"></div><div class="brand-row" style="opacity:0.35;">
-          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
-          <div class="br-product" title="미로" style="flex:1;font-size:12px;color:var(--text-tertiary)">미로</div>
-          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
-          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
-        </div><div class="brand-row" style="opacity:0.35;">
-          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
-          <div class="br-product" title="밀리" style="flex:1;font-size:12px;color:var(--text-tertiary)">밀리</div>
-          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
-          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
+        <div class="brand-row" style="">
+          <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
+          <div class="br-product" title="미로" style="flex:1;font-size:12px;color:var(--text-primary)">미로</div>
+          <div class="br-qty"><strong>28개</strong></div>
+          <div class="br-sales" style="">884만</div>
+        </div><div class="brand-row" style="">
+          <span style="width:18px;height:18px;border-radius:50%;background:#9CA3AF;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">2</span>
+          <div class="br-product" title="밀리" style="flex:1;font-size:12px;color:var(--text-primary)">밀리</div>
+          <div class="br-qty"><strong>17개</strong></div>
+          <div class="br-sales" style="">590만</div>
         </div>
         
       </div><div class="item-card">
@@ -580,12 +585,12 @@
           <div>
             <div class="card-hd-name">리안</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">14개</strong> · 예상매출 <strong style="color:var(--teal)">457만</strong>
+              판매 <strong style="color:var(--blue)">19개</strong> · 예상매출 <strong style="color:var(--teal)">547만</strong>
             </div>
           </div>
           <div class="card-hd-meta">
             <span class="card-brand-cnt">3개 상품</span>
-            <span class="card-issue-cnt">⚠ 1</span>
+            
           </div>
         </div>
         <div class="card-col-hd">
@@ -596,31 +601,27 @@
         </div>
         <div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
-          <div class="br-product" title="플라이" style="flex:1;font-size:12px;color:var(--text-primary)">플라이</div>
-          <div class="br-qty"><strong>8개</strong></div>
-          <div class="br-sales" style="">278만</div>
-        </div><div class="brand-row" style="">
-          <span style="width:18px;height:18px;border-radius:50%;background:#9CA3AF;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">2</span>
           <div class="br-product" title="그램플러스" style="flex:1;font-size:12px;color:var(--text-primary)">그램플러스</div>
-          <div class="br-qty"><strong>6개</strong></div>
-          <div class="br-sales" style="">179만</div>
+          <div class="br-qty"><strong>19개</strong></div>
+          <div class="br-sales" style="">547만</div>
         </div><div style="height:1px;background:var(--border);margin:2px 14px"></div><div class="brand-row" style="opacity:0.35;">
+          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
+          <div class="br-product" title="플라이" style="flex:1;font-size:12px;color:var(--text-tertiary)">플라이</div>
+          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
+          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
+        </div><div class="brand-row" style="opacity:0.35;">
           <span style="width:18px;flex-shrink:0;display:inline-block"></span>
           <div class="br-product" title="벨라" style="flex:1;font-size:12px;color:var(--text-tertiary)">벨라</div>
           <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
           <div class="br-sales" style="color:var(--text-tertiary)">—</div>
         </div>
         
-        <div class="card-issues">
-          <div class="card-issues-title">⚠ 이슈</div>
-          <div class="card-issue-line">슈퍼적립</div>
-        </div>
       </div><div class="item-card">
         <div class="card-hd">
           <div>
             <div class="card-hd-name">부가부</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">6개</strong> · 예상매출 <strong style="color:var(--teal)">542만</strong>
+              <span style="color:var(--text-tertiary)">판매 없음</span>
             </div>
           </div>
           <div class="card-hd-meta">
@@ -634,11 +635,11 @@
           <span style="width:58px;text-align:right;font-size:10px;color:var(--text-tertiary)">판매수량</span>
           <span style="width:68px;text-align:right;font-size:10px;color:var(--text-tertiary)">예상매출</span>
         </div>
-        <div class="brand-row" style="">
-          <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
-          <div class="br-product" title="버터플라이2" style="flex:1;font-size:12px;color:var(--text-primary)">버터플라이2</div>
-          <div class="br-qty"><strong>6개</strong></div>
-          <div class="br-sales" style="">542만</div>
+        <div style="height:1px;background:var(--border);margin:2px 14px"></div><div class="brand-row" style="opacity:0.35;">
+          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
+          <div class="br-product" title="버터플라이2" style="flex:1;font-size:12px;color:var(--text-tertiary)">버터플라이2</div>
+          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
+          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
         </div>
         
       </div><div class="item-card">
@@ -646,7 +647,7 @@
           <div>
             <div class="card-hd-name">와이업</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">13개</strong> · 예상매출 <strong style="color:var(--teal)">647만</strong>
+              판매 <strong style="color:var(--blue)">5개</strong> · 예상매출 <strong style="color:var(--teal)">249만</strong>
             </div>
           </div>
           <div class="card-hd-meta">
@@ -663,8 +664,8 @@
         <div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
           <div class="br-product" title="지니에스3" style="flex:1;font-size:12px;color:var(--text-primary)">지니에스3</div>
-          <div class="br-qty"><strong>13개</strong></div>
-          <div class="br-sales" style="">647만</div>
+          <div class="br-qty"><strong>5개</strong></div>
+          <div class="br-sales" style="">249만</div>
         </div>
         
       </div><div class="item-card">
@@ -750,7 +751,7 @@
           <div>
             <div class="card-hd-name">누비타보</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">8개</strong> · 예상매출 <strong style="color:var(--teal)">350만</strong>
+              <span style="color:var(--text-tertiary)">판매 없음</span>
             </div>
           </div>
           <div class="card-hd-meta">
@@ -764,11 +765,11 @@
           <span style="width:58px;text-align:right;font-size:10px;color:var(--text-tertiary)">판매수량</span>
           <span style="width:68px;text-align:right;font-size:10px;color:var(--text-tertiary)">예상매출</span>
         </div>
-        <div class="brand-row" style="">
-          <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
-          <div class="br-product" title="레노2" style="flex:1;font-size:12px;color:var(--text-primary)">레노2</div>
-          <div class="br-qty"><strong>8개</strong></div>
-          <div class="br-sales" style="">350만</div>
+        <div style="height:1px;background:var(--border);margin:2px 14px"></div><div class="brand-row" style="opacity:0.35;">
+          <span style="width:18px;flex-shrink:0;display:inline-block"></span>
+          <div class="br-product" title="레노2" style="flex:1;font-size:12px;color:var(--text-tertiary)">레노2</div>
+          <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
+          <div class="br-sales" style="color:var(--text-tertiary)">—</div>
         </div>
         
       </div><div class="item-card">
@@ -802,7 +803,7 @@
           <div>
             <div class="card-hd-name">조이로</div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px">
-              판매 <strong style="color:var(--blue)">7개</strong> · 예상매출 <strong style="color:var(--teal)">70만</strong>
+              판매 <strong style="color:var(--blue)">6개</strong> · 예상매출 <strong style="color:var(--teal)">83만</strong>
             </div>
           </div>
           <div class="card-hd-meta">
@@ -818,12 +819,12 @@
         </div>
         <div class="brand-row" style="">
           <span style="width:18px;height:18px;border-radius:50%;background:#F59E0B;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
-          <div class="br-product" title="JR2" style="flex:1;font-size:12px;color:var(--text-primary)">JR2</div>
-          <div class="br-qty"><strong>7개</strong></div>
-          <div class="br-sales" style="">70만</div>
+          <div class="br-product" title="JR5" style="flex:1;font-size:12px;color:var(--text-primary)">JR5</div>
+          <div class="br-qty"><strong>6개</strong></div>
+          <div class="br-sales" style="">83만</div>
         </div><div style="height:1px;background:var(--border);margin:2px 14px"></div><div class="brand-row" style="opacity:0.35;">
           <span style="width:18px;flex-shrink:0;display:inline-block"></span>
-          <div class="br-product" title="JR5" style="flex:1;font-size:12px;color:var(--text-tertiary)">JR5</div>
+          <div class="br-product" title="JR2" style="flex:1;font-size:12px;color:var(--text-tertiary)">JR2</div>
           <div class="br-qty"><span style="color:var(--text-tertiary)">0개</span></div>
           <div class="br-sales" style="color:var(--text-tertiary)">—</div>
         </div>
@@ -834,7 +835,7 @@
 <script>
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw7IMvXa0S5mudlSbXTy8BfFg-VQEQCguq0sIjtKjRP456u7gqwHh-qoK0NBBQ-gR8ReA/exec';
 
-let allRows = [], filteredRows = [], currentView = 'card', currentWeek = [];
+let allRows = [], filteredRows = [], currentView = 'card', currentWeek = [], currentMonth = '';
 
 function pNum(v){
   if(v===null||v===undefined||v===''||v==='-') return null;
@@ -949,16 +950,30 @@ function initFilters(){
   brands.forEach(b=>{ const o=document.createElement('option'); o.value=b; o.textContent=b; bSel.appendChild(o); });
 
   // 월
-  const months = [...new Set(allRows.map(r=>r.date?r.date.slice(0,7):'').filter(Boolean))].sort().reverse();
-  const mSel = document.getElementById('filterMonth');
-  mSel.innerHTML = '<option value="">전체</option>';
-  months.forEach(m=>{ const o=document.createElement('option'); o.value=m; o.textContent=m; mSel.appendChild(o); });
-  if(months.length) mSel.value = months[0];
+  const months = [...new Set(allRows.map(r=>r.date?r.date.slice(0,7):'').filter(Boolean))].sort();
+  const monthContainer = document.getElementById('monthBtns');
+  monthContainer.innerHTML = '';
+  months.forEach(m=>{
+    const btn = document.createElement('button');
+    btn.className = 'wbtn';
+    btn.textContent = parseInt(m.slice(5),10)+'월';
+    btn.dataset.month = m;
+    btn.onclick = function(){
+      document.querySelectorAll('#monthBtns .wbtn').forEach(b=>b.classList.remove('active'));
+      this.classList.add('active');
+      currentMonth = this.dataset.month;
+      buildWeekButtons();
+    };
+    monthContainer.appendChild(btn);
+  });
+  currentMonth = months.length ? months[months.length-1] : '';
+  const mBtns = monthContainer.querySelectorAll('.wbtn');
+  if(mBtns.length) mBtns[mBtns.length-1].classList.add('active');
   buildWeekButtons();
 }
 
 function buildWeekButtons(){
-  const month = document.getElementById('filterMonth').value;
+  const month = currentMonth;
   const dates = [...new Set(allRows.filter(r=>r.date&&(!month||r.date.startsWith(month))).map(r=>r.date))].sort();
   const container = document.getElementById('weekBtns');
   container.innerHTML = '';
