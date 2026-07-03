@@ -833,7 +833,9 @@
     </div></div>
 
 <script>
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw7IMvXa0S5mudlSbXTy8BfFg-VQEQCguq0sIjtKjRP456u7gqwHh-qoK0NBBQ-gR8ReA/exec';
+const SHEET_ID = '1IWdtmdghfglPS_CaaQUkvJssom-aY1GHEokV1b4-NJU';
+const SHEET_GID = '1226837531';
+const GVIZ_URL = 'https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/gviz/tq?gid='+SHEET_GID+'&range=B5:H&tqx=out:json;responseHandler:__salesCb';
 
 let allRows = [], filteredRows = [], currentView = 'card', currentWeek = [], currentMonth = '';
 
@@ -854,6 +856,11 @@ function parseDateStr(raw){
   }
   const s = String(raw).trim();
   if(!s||s==='-') return '';
+  const gvizDate = s.match(/^Date\((\d+),(\d+),(\d+)/);
+  if(gvizDate){
+    const y=gvizDate[1], m=String(Number(gvizDate[2])+1).padStart(2,'0'), d=String(Number(gvizDate[3])).padStart(2,'0');
+    return y+'-'+m+'-'+d;
+  }
   if(/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
   const year = new Date().getFullYear();
   const mmdd = s.match(/^(\d{1,2})\/(\d{1,2})$/);
@@ -882,7 +889,25 @@ function loadData(){
     const s = document.getElementById('sales-jsonp');
     if(s) s.remove();
     try{
-      const rows = json.rows || json.data || [];
+      const gRows = (json && json.table && json.table.rows) ? json.table.rows : [];
+      const rows = [];
+      gRows.forEach(function(r){
+        const c = r.c || [];
+        const val = function(i){ return (c[i] && c[i].v !== undefined && c[i].v !== null) ? c[i].v : ''; };
+        const cat   = String(val(0)).trim();
+        const brand = String(val(2)).trim();
+        if(!cat && !brand) return;
+        if(!brand) return;
+        rows.push({
+          품목:   cat,
+          날짜:   val(1),
+          브랜드: brand,
+          상품명: String(val(3)).trim(),
+          판매수량: val(4),
+          '예상매출(7일)': val(5),
+          이슈사항: String(val(6)).trim(),
+        });
+      });
       if(!rows.length) throw new Error('데이터 없음');
       allRows = rows.map(r=>({
         cat:    String(r.품목||'').trim(),
@@ -904,7 +929,7 @@ function loadData(){
   };
   const sc = document.createElement('script');
   sc.id = 'sales-jsonp';
-  sc.src = APPS_SCRIPT_URL+'?callback=__salesCb&t='+Date.now();
+  sc.src = GVIZ_URL+'&t='+Date.now();
   sc.onerror = ()=>{ clearTimeout(timer); setStatus([{t:'❌ 연결 실패',c:'chip-error'}]); };
   document.body.appendChild(sc);
 }
